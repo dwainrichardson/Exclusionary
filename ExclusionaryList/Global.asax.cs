@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExclusionaryList.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,7 @@ namespace ExclusionaryList
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+       
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -18,6 +20,8 @@ namespace ExclusionaryList
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+
         }
     }
 }

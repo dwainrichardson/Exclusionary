@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "ItemDetails";
+}
+
+<h2>ItemDetails</h2>
+
+@section scripts{
+    
+    <script src="~/Scripts/knockout-3.1.0.js"></script>
+<script src="~/Scripts/knockout.mapping-latest.js"></script>
+<script src="~/Scripts/modernizr-2.6.2.js"></script>
+<script>
+    function ExclModel() {
+        var self = this;
+        self.Details = ko.observableArray();
+        self.LoadDetails = function () {
+
+        };
+        $.ajax({
+            url: 'Home/IndexData',//self.addressSearchApi,
+            type: 'GET',
+            async: false,
+            success: function (result) {
+                console.log(result);
+                self.Details = ko.mapping.fromJS(result);
+
+
+            }
+        });
+
+    };
+
+
+    $(document).ready(function () {
+        var em = new ExclModel();
+        ko.applyBindings(em);
+    });
+</script>
+
+}
